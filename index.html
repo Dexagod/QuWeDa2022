@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <link rel="stylesheet" href="_shared/styles/shower-ruben.css">
+  <link rel="stylesheet" href="_shared/styles/web-fundamentals.css">
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <title>What's In A Pod?</title>
+</head>
+<body class="shower list">
+  <header class="caption">
+    <h1>
+      <a class="series" href="#title">QuWeDa 2022</a><br>
+      <a class="module" href="#title">What's In A Pod?</a>
+    </h1>
+  </header>
+
+  <div class="title slide" id="title">
+    <h2>
+      <a class="series" href="#title">QuWeDa 2022</a><br>
+      <a class="module" href="#title">What's In A Pod?</a>
+    </h2>
+    <h3>
+      A Knowledge Graph Interpretation <br>
+      For The Solid Ecosystem
+    </h3>
+    <br>
+    <p>Presented by: 
+      <br>
+      <a href="https://pod.rubendedecker.be/profile/card#me">Ruben Dedecker</a>
+    </p>
+    <p class="affiliation">
+      <a href="http://www.ugent.be/"><img  class="ugent"  src="_shared/images/logos/ugent.svg"  alt="Ghent University"></a>
+      <a href="http://www.imec.be/"><img class="imec" src="_shared/images/logos/imec.svg" alt="imec"></a>
+      <a href="http://idlab.ugent.be/"><img class="idlab" src="_shared/images/logos/idlab.svg" alt="IDLab"></a>
+    </p>
+  </div>
+
+
+  <div class="slide toc" id="toc">
+    <h2>What's in a Pod?</h2>
+    
+    <ul>
+      <li>
+        <a href="#toc-pod">What is a Pod?</a>
+      </li>
+      <li>
+        <a href="#toc-document-centric">A document-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-centric">A graph-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-requirements">What do we need?</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- What is a pod -->
+
+  <div class="slide toc" id="toc-pod">
+    <h2>What's in a Pod?</h2>
+    
+    <ul>
+      <li class="current">
+        <a href="#toc-pod">What is a Pod?</a>
+      </li>
+      <li>
+        <a href="#toc-document-centric">A document-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-centric">A graph-centric interpretation</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="what_is_a_pod">
+    <h2>What is a Pod?</h2>
+    <ul>
+      <li>
+        <b>P</b>ersonal <b>O</b>nline <b>D</b>atastore
+        <ul>
+          <li>Keeping people in <i>control</i> of their data</li>
+        </ul>
+      </li>
+      <li>
+        Separation of Application and Data
+        <ul>
+          <li>
+            By separating applications and the data they use,
+            we create independent choices.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <figure style="position: absolute; right: 20px; top: 20px;">
+      <img src=solidlogo.svg alt="Solid Logo"/>
+    </figure>
+  </div>
+
+
+
+  <div class="slide" id="state_of_web">
+    <h2>From a Web of tight coupling</h2>
+    <figure class="cover width margin">
+      <img src=state_current_web.svg alt="Current Web Ecosystem" style="width: 90%;" />
+    </figure>
+  </div>
+
+  <div class="slide" id="state_with_solid">
+    <h2>Towards personal data management</h2>
+    <figure class="cover width margin">
+      <img src=state_current_solid.svg alt="Current Web Ecosystem" style="width: 90%;" />
+    </figure>
+  </div>
+
+
+  <!-- document-centric interpretation - a single document hierarchy -->
+
+  <div class="slide toc" id="toc-document-centric">
+    <h2>What's in a Pod?</h2>
+    <ul>
+      <li>
+        <a href="#toc-pod">What is a Pod?</a>
+      </li>
+      <li class="current">
+        <a href="#toc-document-centric">A document-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-centric">A graph-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-requirements">What do we need?</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="document-centric-definition">
+    <h2>A document-centric Pod</h2>
+    <ul>
+      <li class="no-next">
+        <ul class="no-next">
+          <li>
+            <i>
+              In the document-centric interpretation, 
+              each Solid Pod is a <b>single specific hierarchical structure</b> 
+              of containers and documents exposed through the Solid Protocol, 
+              where data and access control rules are stored in 
+              specific RDF and non-RDF documents within that hierarchy.
+            </i>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="slide" id="document-centric-real-world">
+    <h2>
+      A document-centric Pod
+    </h2>
+    <ul>
+      <li>
+        Solid stores data as a hierarchy of RDF documents
+        <ul>
+          <li>
+            Applications write data to the Pod modeled
+            <br/>
+            to their real-world knowledge of the data.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <figure style="width: 50%; float: left;">
+          <img src="contacts.png" alt="User contacts" style="height: 45vh; margin-left: 0;">
+        </figure>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="document-centric-multiple-hierarchies">
+    <h2>
+      A document-centric Pod
+    </h2>
+    <ul>
+      <li>
+        Solid stores data as a hierarchy of RDF documents
+        <ul>
+          <li>
+            There are many ways to model real-world data
+            <br/>
+            where the Solid document hierarchy allows only one
+          </li>
+        </ul>
+      </li>
+      <li>
+        <figure style="width: 50%; float: left;">
+          <img src="contacts.png" alt="User contacts" style="height: 45vh; margin-left: 0;">
+        </figure>
+        <figure style="width: 50%; float: right;">
+          <img src="contacts2.png" alt="User contacts" style="height: 45vh; margin-left: 0;">
+        </figure>
+      </li>
+    </ul>
+  </div>
+
+  
+  <div class="slide" id="document-centric-definition">
+    <h2>The document hierarchy leaves degrees of freedom</h2>
+    <ul>
+      <li>
+        The Solid protocol enables client apps to define their own APIs within the Pod's URL space.
+        <ul>
+          <li>
+            Even for a limited ecosystem, we need agreements on data storage to enable application interoperability.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div> 
+
+
+
+  <div class="slide" id="document-centric-semantics-intro">
+    <h2>The Solid document hierarchy<br> carries document-based semantics</h2>
+
+    <p>
+      The Solid document organization is coupled
+      <br>
+      to other aspects of the data, that are
+      <br>
+      limited to (one) document granularity
+    </p>
+
+    <div>
+      <div style="width: 50%; float:left;">
+        <ul>
+          <li style="font-weight: 200; margin-bottom: 5px";><i>(implicit)</i> Context</li>
+          <li style="font-weight: 200; margin-bottom: 5px"><i>(implicit)</i> Provenance</li>
+          <li style="font-weight: 200; margin-bottom: 5px"><i>(explicit)</i> Policies</li>
+          <li style="font-weight: 200; margin-bottom: 5px"><i>(implicit)</i> Trust</li>
+          <li style="font-weight: 200; margin-bottom: 5px"><i>(implicit)</i> Optimization</li>
+        </ul>
+     </div>
+     
+      <div style="width: 50%; float:right;"">
+        
+        <figure style="width: 50%; float: left;">
+          <img src="aspects_example.png" style="height: 40vh;">
+        </figure>
+      </div>     
+    </div> 
+  </div>
+
+
+  <!-- data modeling mismatches -->
+
+  
+
+  <div class="slide" id="document-centric-mismatches-intro">
+    <h2>Data modeling mismatches</h2>
+    <ul>
+      <li>
+        The single document hierarchy
+        <br>
+        and
+        coupled with document-based semantics
+        <br>
+        leads to mismatches in the modeling of data
+      </li>
+    </ul>
+  </div>
+
+
+  
+  <div class="slide" id="document-centric-mismatches-example">
+    <h2>
+      Even simple examples are limited
+      <br>
+      by the single document hierarchy
+    </h2>
+    
+    <div>
+      <div style="width: 50%; float:left;">
+        <figure>
+          <img src="address_book_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+        </figure>
+        <figure>
+          <img src="contacts_app_example.png" style="height: 50vh">
+        </figure>
+      </div>
+    </div>
+     
+    <div style="width: 50%; float:right;">
+      <figure>
+        <img src="birthday_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+      </figure>
+      <figure>
+        <img src="birthday_app_example.png" style="height: 50vh">
+      </figure>  
+    </div>   
+  </div>
+ 
+  
+  <div class="slide" id="document-centric-mismatches-example-arrows">
+    <h2>
+      Even simple examples are limited
+      <br>
+      by the single document hierarchy
+    </h2>
+    
+    <div>
+      <div style="width: 50%; float:left;">
+        <figure>
+          <img src="address_book_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+        </figure>
+        <figure>
+          <img src="contacts_app_example.png" style="height: 50vh">
+        </figure>
+      </div>
+    </div>
+     
+    <div style="width: 50%; float:right;">
+      <figure>
+        <img src="birthday_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+      </figure>
+      <figure>
+        <img src="birthday_app_example.png" style="height: 50vh">
+      </figure>  
+    </div>   
+    
+    <figure>
+      <img src="example_arrow_right.svg" style="position: absolute; top: 180px; left: 33vw; width: 45vh">
+    </figure>
+  </div>
+
+
+  
+  <div class="slide" id="document-centric-mismatches-example-arrows-2">
+    <h2>
+      Even simple examples are limited
+      <br>
+      by the single document hierarchy
+    </h2>
+    
+    <div>
+      <div style="width: 50%; float:left;">
+        <figure>
+          <img src="address_book_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+        </figure>
+        <figure>
+          <img src="contacts_app_example.png" style="height: 50vh">
+        </figure>
+      </div>
+    </div>
+     
+    <div style="width: 50%; float:right;">
+      <figure>
+        <img src="birthday_app.svg" style="height: 15vh; margin-bottom: 5vh;">
+      </figure>
+      <figure>
+        <img src="birthday_app_example.png" style="height: 50vh">
+      </figure>  
+    </div>   
+    
+    <figure>
+      <img src="example_arrow_left.svg" style="position: absolute; top: 185px; left: 33vw; width: 45vh">
+    </figure>
+  </div>
+
+
+    
+  <div class="slide" id="document-centric-mismatches-policy">
+    <h2>Alternative APIs</h2>
+    <ul>
+      <li>
+        Any API derived from the document hierarchy of the data Pod is limited by its granularity and its explicit and implicit modeling aspects.
+      </li>
+    </ul>
+    <p>
+      To query a resource, you need read access! 
+      <br>
+      If the birthday application does a query for a contact, you have to give it access and trust it with the full set of contact data!
+    </p>
+  </div>
+
+
+
+
+    
+
+
+
+  <!-- graph-centric view -->
+
+
+  <div class="slide toc" id="toc-graph-centric">
+    <h2>What's in a Pod?</h2>
+    <ul>
+      <li>
+        <a href="#toc-pod">What is a Pod?</a>
+      </li>
+      <li>
+        <a href="#toc-document-centric">A document-centric interpretation</a>
+      </li>
+      <li class="current">
+        <a href="#toc-graph-centric">A graph-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-requirements">What do we need?</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="graph-centric-intro">
+    <h2>A graph-centric Pod</h2>
+    <figure class="cover width margin">
+      <img src=comparison.png alt="Solid Logo" style='width: 90%;'/>
+    </figure>
+  </div>
+
+  <div class="slide" id="graph-centric-intro-projection">
+    <h2>A multi-dimensional data space</h2>
+    <ul>
+      <li>
+        The current Solid Pod is both a document hierarchy, and a knowledge graph.
+      </li>
+    </ul>
+    <div style="color:red">TODO:: We need some intro on projection</div>
+  </div>
+
+
+  <div class="slide" id="graph-centric-definition">
+    <h3>A graph-centric Pod</h3>
+    <ul>
+      <li class="no-next">
+        We present the following definition:
+        <br/>
+        <br/>
+        <ul class="no-next">
+          <li>
+            <i>
+              In the graph-centric interpretation, each Solid Pod is a 
+              <b>hybrid, contextualized knowledge graph</b>,
+              wherein “hybrid” indicates first-class support 
+              for both documents and RDF statements, 
+              and “contextualized” the ability to associate 
+              each of its individual documents and statements 
+              with metadata such as policies, provenance, and trust
+            </i>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="graph-centric-aspects-intro">
+    <h3>Aspects of the RDF data graph</h3>
+    <ul>
+      <li>
+        A graph-centric interpretation of the Solid Pod
+        <br>
+        enables us to encode the aspects of its data
+        <br>
+        directly in the Pod knowledge graph.
+        <ul>
+          <li>
+            Hence, we define it as a <i>contextualized</i> knowledge graph. 
+          </li>
+        </ul>
+      </li>
+      <li>
+        These aspects can be assigned in different granularities over the data graph.
+        <ul>
+          <li>
+            Triples can share the same provenance, but have different policies applied.
+          </li>
+        </ul>
+      </li>
+      <li>
+        These can be reflected in the APIs that are built on top of the Pod knowledge graph.
+      </li>
+    </ul>
+  </div>
+    
+
+  <div class="slide" id="graph-centric-aspects-rematch">
+    <h2>
+      We can derive any document hierarchy
+      <br>
+      as a projection of our Pod KG
+    </h2>
+    
+    
+    <figure class="width margin">
+      <img src="graph_example.png" >
+    </figure>
+  </div>
+
+
+
+  <!-- Comparison -->
+
+
+  <div class="slide toc" id="toc-graph-requirements">
+    <h2>What's in a Pod?</h2>
+    <ul>
+      <li>
+        <a href="#toc-pod">What is a Pod?</a>
+      </li>
+      <li>
+        <a href="#toc-document-centric">A document-centric interpretation</a>
+      </li>
+      <li>
+        <a href="#toc-graph-centric">A graph-centric interpretation</a>
+      </li>
+      <li class="current">
+        <a href="#toc-graph-requirements">What do we need?</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="requirements-storage">
+    <h2>New storage requirements</h2>
+    <ul>
+      <li>
+        A single document hierarchy only requires
+        <br>
+        a direct file system mapping
+      </li>
+      <li>
+        A multi-dimensional data graph requires
+        <br>
+        more specific storage solutions
+        <ul>
+          <li>
+            Different grantularities of aspects lead to 
+            <br>
+            dynamic groupings of data.
+          </li>
+          <li>
+            In the medium term, we can emulate these 
+            <br>
+            on <a href="https://w3c.github.io/rdf-star/cg-spec/editors_draft.html">RDF-star</a> stores.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="requirements-publication">
+    <h2>API-dependent publication</h2>
+    <ul>
+      <li>
+        In the current document hierarchy
+        <br>
+        published documents correspond to a URI.
+      </li>
+      <li>
+        In a graph-centric environment, the generation
+        <br>
+        of resources is dependent on the API
+        <ul>
+          <li>
+            Dereferencability depends on the interfaces
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="slide" id="requirements-querying">
+    <h2>Querying</h2>
+    <ul>
+      <li>
+        In a document hierarchy, querying consists of
+        <br>
+        retrieving all documents relevant to the query
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide title" id="key-takeaways">
+    <figure class="cover width margin">
+      <img src="key_takeaways.svg" />
+    </figure>
+  </div>
+
+
+  <div class="slide" id="key-takeaways-single-view">
+    <h2>
+      To enable the Pod-as-KG model,
+      <br>
+      we ask to abandon:
+    </h2>
+    <ul>
+      <li>
+        The notion that one view would be more special than all others
+        <ul>
+          <li>
+            Where a single document hierarchy is more simple and developer friendly,
+            it limits the ecosystem in ways we can already see today.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="key-takeaways-single-view">
+    <h2>
+      We cannot model reality in a single document hierarchy
+    </h2>
+    <ul>
+      <li>
+        We cannot possibly standardize document structures for all domains.
+      </li>
+      <li>
+        To manage such a single document hierarchy<br>
+        we require complex solutions.
+      </li>
+      <li>
+        The Pod-as-KG interpretation allows us to design
+        <br>
+        more efficient solutions for the ecosystem
+      </li>
+    </ul>
+  </div>
+
+  
+  <div class="slide title" id="key-takeaways-single-view">
+    <h2>
+      How would you like to access and manage your data?
+    </h2>
+    <p>Please join <a href="https://solidproject.org/">the discussion</a></p>
+  </div>
+
+  <script src="_shared/scripts/shower.min.js"></script>
+  <script src="_shared/scripts/enhancements.js"></script>
+</body>
+</html>
